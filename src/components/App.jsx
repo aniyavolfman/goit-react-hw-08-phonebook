@@ -23,7 +23,7 @@ export function App() {
           <Route index element={<LazyHomePage />} />
           <Route path="/register" element={<LazyRegisterPage />} />
           <Route path="/login" element={<LazyLoginPage />} />
-          <Route path='/contacts' element={<LazyContactsPage />} />
+          {/* <Route path='/contacts' element={<LazyContactsPage />} /> */}
           <Route
             path="*"
             element={
