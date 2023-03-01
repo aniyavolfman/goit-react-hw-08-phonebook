@@ -6,6 +6,7 @@ import { Layout } from './Layout/Layout';
 import { useDispatch } from 'react-redux';
 import * as authOperations from '../redux/auth/authOperations';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
 
 const LazyContactsPage = lazy(() =>
   import('../pages/ContactsPage/ContactsPage')
@@ -28,9 +29,24 @@ export function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<LazyHomePage />} />
-          <Route path="/register" element={<LazyRegisterPage />} />
-          <Route path="/login" element={<LazyLoginPage />} />
-          {/* <Route path="/contacts" element={<LazyContactsPage />} /> */}
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LazyRegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LazyLoginPage />}
+              />
+            }
+          />
           <Route
             path="/contacts"
             element={
