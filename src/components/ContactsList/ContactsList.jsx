@@ -2,12 +2,12 @@ import { ContactListItem } from 'components/ContactListItem/ContactListItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperations from 'redux/contacts/contactsOperations';
-import { getFilterContacts } from 'redux/contacts/contactsSelectors';
+import { selectFilterContacts } from 'redux/contacts/contactsSelectors';
 import css from './ContactsList.module.css'
 
 export function ContactsList() {
 
-  const filteredContacts = useSelector(getFilterContacts);
+  const filteredContacts = useSelector(selectFilterContacts);
 
   const dispatch = useDispatch();
 

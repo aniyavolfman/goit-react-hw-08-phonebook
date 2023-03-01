@@ -1,5 +1,5 @@
 import React from 'react';
-import { getLoaderStatus, getError } from 'redux/contacts/contactsSelectors';
+import { selectLoaderStatus, selectError } from 'redux/contacts/contactsSelectors';
 import { useSelector } from 'react-redux';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Container } from 'components/Container/Container';
@@ -8,8 +8,8 @@ import { Form } from 'components/Form/Form';
 import { Loader } from 'components/Loader/Loader';
 
 export default function ContactsPage() {
-  const isLoading = useSelector(getLoaderStatus);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectLoaderStatus);
+  const error = useSelector(selectError);
   return (
     <Container>
       {error !== null && <p>Ooops, smth is wrong... Message: '{error}'</p>}
