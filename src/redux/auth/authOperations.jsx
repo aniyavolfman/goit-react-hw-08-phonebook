@@ -5,10 +5,10 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkApi) => {
     try {
-        const response = await contactsAPI.register(credentials);
+      const response = await contactsAPI.register(credentials);
       return response;
     } catch (error) {
-      thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -20,7 +20,7 @@ export const logIn = createAsyncThunk(
       const response = await contactsAPI.login(credentials);
       return response;
     } catch (error) {
-      thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -28,11 +28,10 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk(
   'auth/logout',
   async (_, thunkApi) => {
-    try {
-      const response = await contactsAPI.logout();
-      return response;
-    } catch (error) {
-      thunkApi.rejectWithValue(error.message);
-    }
+  try {
+    const response = await contactsAPI.logout();
+    return response;
+  } catch (error) {
+    return thunkApi.rejectWithValue(error.message);
   }
-);
+});
