@@ -1,9 +1,4 @@
 import axios from 'axios';
-import { token } from './user-api';
-
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
-axios.defaults.headers.common.Authorization = `Bearer ${token.set()}`;
-
 
 export async function requestContacts() {
   try {

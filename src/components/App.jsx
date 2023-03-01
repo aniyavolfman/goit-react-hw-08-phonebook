@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { lazy, Suspense } from 'react';
 import { Loader } from './Loader/Loader';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
+import { useDispatch } from 'react-redux';
+import * as authOperations from '../redux/auth/authOperations';
 
 const LazyContactsPage = lazy(() =>
   import('../pages/ContactsPage/ContactsPage')
 );
-const LazyHomePage = lazy(() =>
-  import('../pages/HomePage/HomePage')
-);
+const LazyHomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LazyLoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
-const LazyRegisterPage = lazy(() =>
-  import('../pages/RegisterPage/RegisterPage')
-);
+const LazyRegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 
 export function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
@@ -23,7 +27,7 @@ export function App() {
           <Route index element={<LazyHomePage />} />
           <Route path="/register" element={<LazyRegisterPage />} />
           <Route path="/login" element={<LazyLoginPage />} />
-          <Route path='/contacts' element={<LazyContactsPage />} />
+          <Route path="/contacts" element={<LazyContactsPage />} />
           <Route
             path="*"
             element={

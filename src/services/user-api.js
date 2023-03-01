@@ -40,3 +40,13 @@ export async function logout(credentials) {
     console.log(error.message);
   }
 }
+
+export async function refresh(persistedToken) {
+  try {
+    token.set(persistedToken);
+    const { data } = await axios.get('/users/current');
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
