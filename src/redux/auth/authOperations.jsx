@@ -6,7 +6,30 @@ export const register = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
         const response = await contactsAPI.register(credentials);
-        console.log(response)
+      return response;
+    } catch (error) {
+      thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logIn = createAsyncThunk(
+  'auth/login',
+  async (credentials, thunkApi) => {
+    try {
+      const response = await contactsAPI.login(credentials);
+      return response;
+    } catch (error) {
+      thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logOut = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkApi) => {
+    try {
+      const response = await contactsAPI.logout();
       return response;
     } catch (error) {
       thunkApi.rejectWithValue(error.message);
