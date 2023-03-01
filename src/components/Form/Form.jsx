@@ -1,32 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperations from 'redux/contacts/contactsOperations';
-import css from './Form.module.css'
-import {selectContactsList} from 'redux/contacts/contactsSelectors';
-  
+import css from './Form.module.css';
+import { selectContactsList } from 'redux/contacts/contactsSelectors';
+
 export function Form() {
-  
   const contacts = useSelector(selectContactsList);
 
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
-  const [number, setNumber] = useState(''); 
+  const [number, setNumber] = useState('');
 
-  const handleInputChange = event => {
-    const inputValue = event.target.value;
-    const inputName = event.target.name;
+  const contactMap = {
+    name: setName,
+    number: setNumber,
+  };
 
-    switch (inputName) {
-      case 'name':
-        setName(inputValue);
-        break;
-      case 'number':
-        setNumber(inputValue);
-        break;
-      default:
-        break;
-    }
+  const handleInputChange = ({ target: { name, value } }) => {
+    contactMap[name](value);
   };
 
   const handleSubmit = event => {
@@ -57,8 +49,7 @@ export function Form() {
     };
 
     dispatch(contactsOperations.addContact(finalContact));
-    
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className={css.formContact}>
@@ -92,4 +83,3 @@ export function Form() {
     </form>
   );
 }
-

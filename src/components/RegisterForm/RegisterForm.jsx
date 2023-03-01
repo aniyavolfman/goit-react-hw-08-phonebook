@@ -9,20 +9,15 @@ export function RegisterForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+  const userMap = {
+    name: setName,
+    email: setEmail,
+    password: setPassword,
+  };
+
   const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        break;
-    }
+    userMap[name](value);
   }
 
   const handleSubmit = event => {
