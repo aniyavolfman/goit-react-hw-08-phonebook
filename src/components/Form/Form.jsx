@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperations from 'redux/contacts/contactsOperations';
 import css from './Form.module.css'
-import {getContactsList} from 'redux/contacts/contactsSlice';
-
+import {getContactsList} from 'redux/contacts/contactsSelectors';
+  
 export function Form() {
   
   const contacts = useSelector(getContactsList);

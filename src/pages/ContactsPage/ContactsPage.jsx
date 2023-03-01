@@ -1,5 +1,5 @@
 import React from 'react';
-import { getLoaderStatus, getError } from 'redux/contacts/contactsSlice';
+import { getLoaderStatus, getError } from 'redux/contacts/contactsSelectors';
 import { useSelector } from 'react-redux';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Container } from 'components/Container/Container';
