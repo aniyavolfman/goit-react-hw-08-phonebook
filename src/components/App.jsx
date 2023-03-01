@@ -3,10 +3,11 @@ import { lazy, Suspense } from 'react';
 import { Loader } from './Loader/Loader';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as authOperations from '../redux/auth/authOperations';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
+import { selectFetchingCurrentUser } from 'redux/auth/authSelectors';
 
 const LazyContactsPage = lazy(() =>
   import('../pages/ContactsPage/ContactsPage')
@@ -19,13 +20,14 @@ const LazyRegisterPage = lazy(() =>
 
 export function App() {
   const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(selectFetchingCurrentUser);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loader />}>
+    !isFetchingCurrentUser && (<Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<LazyHomePage />} />
@@ -66,6 +68,6 @@ export function App() {
           />
         </Route>
       </Routes>
-    </Suspense>
+    </Suspense>)
   );
 }
