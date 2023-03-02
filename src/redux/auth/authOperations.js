@@ -6,7 +6,11 @@ export const register = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const response = await contactsAPI.register(credentials);
-      return response;
+      if (response) {
+        return response;
+      } else {
+        return thunkApi.rejectWithValue('Please, try again');
+      }
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
@@ -18,7 +22,11 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const response = await contactsAPI.login(credentials);
-      return response;
+      if (response) {
+        return response;
+      } else {
+        return thunkApi.rejectWithValue('No such user. Please, try again');
+      }
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

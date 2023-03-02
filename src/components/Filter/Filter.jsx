@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Input, Button, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { selectContactsFilter } from 'redux/filter/filterSelector';
 import { setFilter } from 'redux/filter/filterSlice';

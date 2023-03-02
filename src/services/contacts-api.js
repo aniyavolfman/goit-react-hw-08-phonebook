@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export async function requestContacts() {
   try {
     const { data } = await axios.get('/contacts'); 
     return data;
   } catch (error) {
-    console.log(error.message);
+    Notify.failure(error.message);
   }
 }
 export async function addContacts(contact) {
@@ -13,7 +14,7 @@ export async function addContacts(contact) {
     const { data } = await axios.post('/contacts', contact);
     return data;
   } catch (error) {
-    console.log(error.message);
+    Notify.failure(error.message);
   }
 }
 export async function deleteContacts(id) {
@@ -21,6 +22,6 @@ export async function deleteContacts(id) {
     const { data } = await axios.delete(`/contacts/${id}`);
     return data;
   } catch (error) {
-    console.log(error.message);
+    Notify.failure(error.message);
   }
 }

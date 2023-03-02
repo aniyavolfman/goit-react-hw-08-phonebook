@@ -1,0 +1,12 @@
+.information{
+    text-align: center;
+}
+
+.accent {
+    font-weight: 600;
+    color:#6c5ce7;
+}
+
+.accent:hover, .accent:focus {
+    text-decoration: underline;
+}

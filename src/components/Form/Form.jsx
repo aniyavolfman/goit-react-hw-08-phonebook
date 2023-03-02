@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as contactsOperations from 'redux/contacts/contactsOperations';
 import { Input, Button, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { PhoneIcon, EditIcon } from '@chakra-ui/icons';
@@ -43,7 +44,7 @@ export function Form() {
           contactItem.name.toLowerCase() === contact.name.toLowerCase()
       )
     ) {
-      alert(`Oops, ${contact.name} is already in contacts!`);
+      Notify.info(`Oops, ${contact.name} is already in contacts!`);
       return;
     }
     const finalContact = {

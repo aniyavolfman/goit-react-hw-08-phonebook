@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -18,7 +19,7 @@ export async function register(credentials) {
     token.set(data.token);
     return data;
   } catch (error) {
-    console.log(error.message);
+    Notify.failure(error.message);
   }
 }
 
@@ -28,7 +29,7 @@ export async function login(credentials) {
     token.set(data.token);
     return data;
   } catch (error) {
-    console.log(error.message);
+    Notify.failure(error.message);
   }
 }
 
@@ -37,7 +38,7 @@ export async function logout(credentials) {
     await axios.post('/users/logout', credentials);
     token.unset();
   } catch (error) {
-    console.log(error.message);
+    Notify.failure(error.message);
   }
 }
 
@@ -47,6 +48,6 @@ export async function refresh(persistedToken) {
     const { data } = await axios.get('/users/current');
     return data;
   } catch (error) {
-    console.log(error.message);
+    Notify.failure(error.message);
   }
 }
