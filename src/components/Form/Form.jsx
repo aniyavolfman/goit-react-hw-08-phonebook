@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperations from 'redux/contacts/contactsOperations';
+import { Input, Button, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { PhoneIcon, EditIcon } from '@chakra-ui/icons';
 import css from './Form.module.css';
 import { selectContactsList } from 'redux/contacts/contactsSelectors';
 
@@ -55,31 +57,47 @@ export function Form() {
     <form onSubmit={handleSubmit} className={css.formContact}>
       <label>
         <div>Name</div>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleInputChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<EditIcon color="#6c5ce7" />}
+          />
+          <Input
+            variant="filled"
+            placeholder="Enter contact name"
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleInputChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </InputGroup>
       </label>
       <label>
         <div>Number</div>
-        <input
-          type="tel"
-          name="number"
-          value={number}
-          onChange={handleInputChange}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<PhoneIcon color="#6c5ce7" />}
+          />
+          <Input
+            variant="filled"
+            placeholder="Enter contact number"
+            type="tel"
+            name="number"
+            value={number}
+            onChange={handleInputChange}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </InputGroup>
       </label>
-      <button type="submit" className={css.buttonSubmit}>
+      <Button type="submit" colorScheme="purple" className={css.buttonSubmit}>
         Add contact
-      </button>
+      </Button>
     </form>
   );
 }

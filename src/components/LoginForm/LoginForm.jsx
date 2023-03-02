@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Input, Button, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import {EmailIcon, ViewOffIcon } from '@chakra-ui/icons';
 import * as authOperations from '../../redux/auth/authOperations';
+import css from './LoginForm.module.css';
 
 export function LoginForm() {
   const dispatch = useDispatch();
@@ -27,28 +30,46 @@ export function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label>
         Email
-        <input
-          onChange={handleChange}
-          type="email"
-          name="email"
-          value={email}
-          required
-        />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<EmailIcon color="#6c5ce7" />}
+          />
+          <Input
+            variant="filled"
+            placeholder="Enter your email"
+            onChange={handleChange}
+            type="email"
+            name="email"
+            value={email}
+            required
+          />
+        </InputGroup>
       </label>
       <label>
         Password
-        <input
-          onChange={handleChange}
-          type="password"
-          name="password"
-          value={password}
-          required
-        />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<ViewOffIcon color="#6c5ce7" />}
+          />
+          <Input
+            variant="filled"
+            placeholder="Enter your password"
+            onChange={handleChange}
+            type="password"
+            name="password"
+            value={password}
+            required
+          />
+        </InputGroup>
       </label>
-      <button type="submit">Log In</button>
+      <Button type="submit" colorScheme="purple" className={css.button}>
+        Log In
+      </Button>
     </form>
   );
 }

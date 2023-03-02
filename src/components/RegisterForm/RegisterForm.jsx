@@ -1,6 +1,15 @@
 import React, { useState } from 'react'
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {
+  Input,
+  Button,
+  InputGroup,
+  InputLeftElement,
+} from '@chakra-ui/react';
+import {EmailIcon, StarIcon, ViewOffIcon } from '@chakra-ui/icons';
+
 import * as authOperations from '../../redux/auth/authOperations';
+import css from './RegisterForm.module.css';
 
 export function RegisterForm() {
   const dispatch = useDispatch();
@@ -33,38 +42,64 @@ export function RegisterForm() {
 
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label>
         Username
-        <input
-          onChange={handleChange}
-          type="text"
-          name="name"
-          value={name}
-          required
-        />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<StarIcon color="#6c5ce7" />}
+          />
+          <Input
+            variant="filled"
+            placeholder="Enter your name"
+            onChange={handleChange}
+            type="text"
+            name="name"
+            value={name}
+            required
+          />
+        </InputGroup>
       </label>
       <label>
         Email
-        <input
-          onChange={handleChange}
-          type="email"
-          name="email"
-          value={email}
-          required
-        />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<EmailIcon color="#6c5ce7" />}
+          />
+          <Input
+            variant="filled"
+            placeholder="Enter your email"
+            onChange={handleChange}
+            type="email"
+            name="email"
+            value={email}
+            required
+          />
+        </InputGroup>
       </label>
       <label>
         Password
-        <input
-          onChange={handleChange}
-          type="password"
-          name="password"
-          value={password}
-          required
-        />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<ViewOffIcon color="#6c5ce7" />}
+          />
+          <Input
+            variant="filled"
+            placeholder="Enter your password"
+            onChange={handleChange}
+            type="password"
+            name="password"
+            value={password}
+            required
+          />
+        </InputGroup>
       </label>
-      <button type="submit">Register</button>
+      <Button type="submit" colorScheme="purple" className={css.button}>
+        Register
+      </Button>
     </form>
   );
 }

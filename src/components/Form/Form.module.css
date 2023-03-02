@@ -4,13 +4,3 @@
     gap: 20px;
 }
 
-.buttonSubmit {
-    border: none;
-    background-color: #fd79a8;
-    border-radius: 8px;
-    padding: 5px;
-}
-
-.buttonSubmit:hover{
-    background-color: #6c5ce7;
-}

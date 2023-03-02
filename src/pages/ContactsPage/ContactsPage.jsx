@@ -6,6 +6,8 @@ import { Container } from 'components/Container/Container';
 import { Filter } from 'components/Filter/Filter';
 import { Form } from 'components/Form/Form';
 import { Loader } from 'components/Loader/Loader';
+import css from './ContactsPage.module.css';
+
 
 export default function ContactsPage() {
   const isLoading = useSelector(selectLoaderStatus);
@@ -13,9 +15,9 @@ export default function ContactsPage() {
   return (
     <Container>
       {error !== null && <p>Ooops, smth is wrong... Message: '{error}'</p>}
-      <h1>Phonebook</h1>
+      <h1 className={css.mainHeader}>Phonebook</h1>
       <Form />
-      <h2>Contacts</h2>
+      <h2 className={css.header}>Contacts</h2>
       <Filter />
       {isLoading && <Loader />}
       <ContactsList />

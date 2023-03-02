@@ -1,4 +1,5 @@
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
+import { List} from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperations from 'redux/contacts/contactsOperations';
@@ -20,7 +21,7 @@ export function ContactsList() {
   };
   
   return (
-    <ul className={css.contactsList}>
+    <List className={css.contactsList}>
       {filteredContacts.map(({ id, name, number }) => (
         <ContactListItem
           key={id}
@@ -30,7 +31,7 @@ export function ContactsList() {
           buttonId={id}
         />
       ))}
-    </ul>
+    </List>
   );
 }
 

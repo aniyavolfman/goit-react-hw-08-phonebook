@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import ReactDOM from 'react-dom/client';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { App } from 'components/App';
 import './index.css';
+import { theme } from 'theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,7 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <BrowserRouter
         // basename="/goit-react-hw-08-phonebook/"
         >
-          <App />
+          <ChakraProvider theme={theme}>
+            <App />
+          </ChakraProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>

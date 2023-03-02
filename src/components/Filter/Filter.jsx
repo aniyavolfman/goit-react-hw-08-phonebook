@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Input, Button, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
 import { selectContactsFilter } from 'redux/filter/filterSelector';
 import { setFilter } from 'redux/filter/filterSlice';
+import css from './Filter.module.css';
+
 
 
 export function Filter() {
@@ -15,7 +19,21 @@ export function Filter() {
   return (
     <div>
       <p>Find contacts by name</p>
-      <input type="text" name="filter" value={filter} onChange={handleFilter} />
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          children={<SearchIcon color="#6c5ce7" />}
+        />
+        <Input
+          variant="filled"
+          placeholder="Find contact"
+          type="text"
+          name="filter"
+          value={filter}
+          onChange={handleFilter}
+          className={css.input}
+        />
+      </InputGroup>
     </div>
   );
 }
