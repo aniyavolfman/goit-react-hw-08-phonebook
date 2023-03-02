@@ -1,0 +1,4 @@
+.navigation:hover,
+.navigation:focus {
+    text-decoration: underline;
+}

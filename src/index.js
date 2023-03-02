@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { App } from 'components/App';
 import './index.css';
-import { theme } from 'theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <BrowserRouter
         // basename="/goit-react-hw-08-phonebook/"
         >
-          <ChakraProvider theme={theme}>
+          <ChakraProvider>
             <App />
           </ChakraProvider>
         </BrowserRouter>
