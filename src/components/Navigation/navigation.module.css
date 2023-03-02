@@ -5,3 +5,7 @@ text-decoration: underline;
 a[aria-current="page"]{
 text-decoration: overline;
 }
+
+.contacts {
+    margin-left: 30px;
+}

@@ -2,3 +2,7 @@
 .navigation:focus {
     text-decoration: underline;
 }
+
+a[aria-current="page"] {
+    text-decoration: overline;
+}
