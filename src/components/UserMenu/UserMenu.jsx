@@ -14,7 +14,7 @@ export function UserMenu() {
   };
 
   return (
-    <div>
+    <div className={css.userMenu}>
       <Avatar bg="teal.500" />
       <p>
         Hello, <span className={css.name}>{name}</span>

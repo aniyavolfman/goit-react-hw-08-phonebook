@@ -1,15 +1,4 @@
 .header {
-  display: flex;
-  font-size: 12px;
-  padding: 12px 20px;
-  @media (min-width: 480px) {
-    font-size: 18px;
-    padding: 12px 50px;
-  }
-  justify-content: space-between;
-  align-items: center;
-  min-height: 64px;
-  color: #fff;
   background-color: #5a3e79;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);

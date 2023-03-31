@@ -1,0 +1,19 @@
+.navigation a:hover,
+.navigation a:focus {
+  text-decoration: underline;
+}
+
+a[aria-current='page'] {
+  text-decoration: overline;
+}
+
+.contacts {
+  margin-left: 10px;
+  @media (min-width: 1280px) {
+    margin-left: 30px;
+  }
+}
+
+.navigation {
+  color: #d63031;
+}
