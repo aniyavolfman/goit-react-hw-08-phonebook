@@ -6,3 +6,12 @@
 a[aria-current="page"] {
     text-decoration: overline;
 }
+
+.div {
+    display: flex;
+    color: #81ecec;
+    gap: 10px;
+    @media (min-width: 480px) {
+    gap: 20px;
+  }
+}

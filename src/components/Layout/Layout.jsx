@@ -1,7 +1,7 @@
 import { AppBar } from 'components/AppBar/AppBar';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import css from './Layout.module.css';
+import css from './Layout.module.scss';
 
 export function Layout() {
   return (

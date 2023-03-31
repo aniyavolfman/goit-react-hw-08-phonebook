@@ -8,11 +8,10 @@ export default function HomePage() {
   const error = useSelector(selectError);
 
   return (
-    <section>
+    <section className={css.sectionMain} >
       {error !== null && <p>Ooops, smth is wrong... Message: '{error}'</p>}
       <h1 className={css.header}>
-        <StarIcon color="#6c5ce7" />
-        Welcome!!! <StarIcon color="#6c5ce7" />
+        Welcome to your phonebook!
       </h1>
     </section>
   );

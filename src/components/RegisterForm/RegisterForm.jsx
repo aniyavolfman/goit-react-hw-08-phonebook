@@ -9,7 +9,7 @@ import {
 import {EmailIcon, StarIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 import * as authOperations from '../../redux/auth/authOperations';
-import css from './RegisterForm.module.css';
+import css from './RegisterForm.module.scss';
 
 export function RegisterForm() {
   const dispatch = useDispatch();
@@ -97,9 +97,11 @@ export function RegisterForm() {
           />
         </InputGroup>
       </label>
-      <Button type="submit" colorScheme="purple" className={css.button}>
-        Register
-      </Button>
+      <div className={css.div}>
+        <Button type="submit" colorScheme="purple" className={css.button}>
+          Register
+        </Button>
+      </div>
     </form>
   );
 }

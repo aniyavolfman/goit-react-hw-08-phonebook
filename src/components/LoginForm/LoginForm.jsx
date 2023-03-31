@@ -67,9 +67,11 @@ export function LoginForm() {
           />
         </InputGroup>
       </label>
-      <Button type="submit" colorScheme="purple" className={css.button}>
-        Log In
-      </Button>
+      <div className={css.div} >
+        <Button type="submit" colorScheme="purple" className={css.button}>
+          Log In
+        </Button>
+      </div>
     </form>
   );
 }

@@ -1,7 +1,7 @@
 .container {
-    width: 400px;
+    width: 800px;
     max-width: 100%;
-    padding: 0 15px;
+    padding: 20px 15px;
     margin: 0 auto;
     align-items: center;
 }
