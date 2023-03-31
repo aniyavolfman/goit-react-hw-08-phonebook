@@ -5,6 +5,24 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  animation-name: spin;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.phone:hover {
+  animation-play-state: paused;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .divHeader {

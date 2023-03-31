@@ -5,8 +5,15 @@
     font-size: 32px;
     text-align: center;
     color:#6c5ce7;
+    text-decoration-line: none;
+    transition-property: color;
+    transition-duration: 1000ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
+.header:hover {
+color: #fab1a0;
+}
 
 .header:before {
     content: '';
@@ -21,3 +28,5 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+
