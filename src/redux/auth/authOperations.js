@@ -7,9 +7,12 @@ export const register = createAsyncThunk(
     try {
       const response = await contactsAPI.register(credentials);
       if (response) {
+        console.log(response)
         return response;
       } else {
-        return thunkApi.rejectWithValue('Please, try again');
+        return thunkApi.rejectWithValue(
+          'Please, check your password - the minimum allowed length is 7. And your email must be unique.'
+        );
       }
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
