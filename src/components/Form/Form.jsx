@@ -64,12 +64,15 @@ export function Form() {
             children={<EditIcon color="#6c5ce7" />}
           />
           <Input
-            variant="filled"
             placeholder="Enter contact name"
+            _placeholder={{ opacity: 1, color: '#00b894' }}
             type="text"
             name="name"
             value={name}
             onChange={handleInputChange}
+            color="#6c5ce7"
+            borderColor="#6c5ce7"
+            _hover={{ borderColor: '#81ecec' }}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
@@ -84,14 +87,17 @@ export function Form() {
             children={<PhoneIcon color="#6c5ce7" />}
           />
           <Input
-            variant="filled"
             placeholder="Enter contact number"
+            _placeholder={{ opacity: 1, color: '#00b894' }}
             type="tel"
             name="number"
             value={number}
             onChange={handleInputChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            color="#6c5ce7"
+            borderColor="#6c5ce7"
+            _hover={{ borderColor: '#81ecec' }}
             required
           />
         </InputGroup>

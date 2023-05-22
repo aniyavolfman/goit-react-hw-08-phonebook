@@ -25,13 +25,16 @@ export function Filter() {
           children={<SearchIcon color="#6c5ce7" />}
         />
         <Input
-          variant="filled"
           placeholder="Find contact"
+          _placeholder={{ opacity: 1, color: '#00b894' }}
           type="text"
           name="filter"
           value={filter}
           onChange={handleFilter}
           className={css.input}
+          color="#6c5ce7"
+          borderColor="#6c5ce7"
+          _hover={{ borderColor: '#81ecec' }}
         />
       </InputGroup>
     </div>

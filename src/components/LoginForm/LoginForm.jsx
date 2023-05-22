@@ -39,12 +39,15 @@ export function LoginForm() {
             children={<EmailIcon color="#6c5ce7" />}
           />
           <Input
-            variant="filled"
             placeholder="Enter your email"
+            _placeholder={{ opacity: 1, color: '#00b894' }}
             onChange={handleChange}
             type="email"
             name="email"
             value={email}
+            color="#6c5ce7"
+            borderColor="#6c5ce7"
+            _hover={{ borderColor: '#81ecec' }}
             required
           />
         </InputGroup>
@@ -57,17 +60,20 @@ export function LoginForm() {
             children={<ViewOffIcon color="#6c5ce7" />}
           />
           <Input
-            variant="filled"
             placeholder="Enter your password"
+            _placeholder={{ opacity: 1, color: '#00b894' }}
             onChange={handleChange}
             type="password"
             name="password"
             value={password}
+            color="#6c5ce7"
+            borderColor="#6c5ce7"
+            _hover={{ borderColor: '#81ecec' }}
             required
           />
         </InputGroup>
       </label>
-      <div className={css.div} >
+      <div className={css.div}>
         <Button type="submit" colorScheme="purple" className={css.button}>
           Log In
         </Button>
